@@ -1,16 +1,24 @@
-Image classification pipeline using TensorFlow + Google Cloud Vertex AI for real-time inference.
+# 🧠 TensorFlow + Vertex AI Image Classifier
 
-# Image Classification Pipeline (TensorFlow + GCP + Vertex AI)
+A simple end-to-end pipeline:
+- Train a CNN on Fashion-MNIST using TensorFlow
+- Export a SavedModel
+- Upload to Google Cloud Storage
+- Deploy on Vertex AI Endpoint
+- Run real-time predictions via Python or REST API
 
-Train a small TensorFlow CNN locally on Fashion-MNIST, export a **SavedModel**, upload it to **Cloud Storage**, and deploy a real-time **Vertex AI Endpoint** you can call via REST.
+---
 
-## Quickstart
+## 🔧 Tech Stack
+- TensorFlow 2.15
+- Google Cloud Vertex AI
+- Google Cloud Storage
+- Python 3.11
+- Pillow, NumPy, Matplotlib
 
-### 0) Setup
-```bash
-python -m venv .venv && source .venv/bin/activate   # win: .venv\Scripts\activate
-pip install -r requirements.txt
-cp env.example .env    # fill PROJECT_ID, LOCATION, BUCKET
-gcloud auth login
-gcloud auth application-default login
-bash scripts/setup_gcp.sh
+---
+
+## 🧩 Project Flow
+1. **Train model**
+   ```bash
+   python src/train.py --epochs 1 --output_dir artifacts/saved_model_v4
